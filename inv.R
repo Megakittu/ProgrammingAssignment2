@@ -1,4 +1,4 @@
-makecachematrix <- function(x=matrix(x)){
+makecachematrix <- function(x=matrix()){
   inv <- NULL
   set <- function(y){
     x <<- y
@@ -7,12 +7,12 @@ makecachematrix <- function(x=matrix(x)){
   get <- function(){x}
   setInverse <- function(inverse) {inv <<- inverse}
   getInverse <- function() {inv}
-  list(set=set,get=get,setInverse=setInverse,getInverse=getInverse)
+  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
 }
 cachesolve <- function(x,...){
   inv <- x$getInverse()
   if(!is.null(inv)){
-    message("getting catched data")
+    message("getting cached data")
     return(inv)
   }
   mat <- x$get{
